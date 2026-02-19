@@ -1,0 +1,74 @@
+================================================================================
+  MONEY MULING DETECTION ENGINE - HOW TO RUN
+================================================================================
+
+EASIEST WAY:
+-----------
+1. Double-click: RUN.bat
+2. Wait 15 seconds
+3. Open browser to: http://localhost:5173
+
+That's it!
+
+================================================================================
+
+WHAT RUN.bat DOES:
+------------------
+✓ Creates Python virtual environment (if needed)
+✓ Installs backend packages (FastAPI, NetworkX, etc.)
+✓ Installs frontend packages (React, Vite, etc.)
+✓ Starts backend server on port 8000
+✓ Starts frontend server on port 5173
+✓ Opens two windows (one for each server)
+
+================================================================================
+
+MANUAL START (if RUN.bat doesn't work):
+---------------------------------------
+
+TERMINAL 1 - Backend:
+  cd d:\money-mulling-det
+  python -m venv venv
+  venv\Scripts\activate
+  pip install fastapi uvicorn[standard] python-multipart pydantic networkx python-dateutil
+  python backend/main.py
+
+TERMINAL 2 - Frontend:
+  cd d:\money-mulling-det\frontend
+  npm install
+  npm run dev
+
+Then open: http://localhost:5173
+
+================================================================================
+
+TEST BACKEND:
+-------------
+python test_backend.py
+
+This will verify all backend code works correctly.
+
+================================================================================
+
+TROUBLESHOOTING:
+----------------
+
+"Python not found"
+  → Install Python from python.org
+  → Make sure it's in PATH
+
+"Node not found"
+  → Install Node.js from nodejs.org
+  → Restart terminal after installing
+
+"Port already in use"
+  → Close other applications using ports 8000 or 5173
+  → Or kill the process:
+    netstat -ano | findstr :8000
+    taskkill /PID <number> /F
+
+"Module not found"
+  → Make sure virtual environment is activated
+  → Run: venv\Scripts\activate
+
+================================================================================

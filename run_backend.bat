@@ -1,0 +1,3 @@
+@echo off
+echo Starting Money Muling Detection Backend...
+python backend/main.py

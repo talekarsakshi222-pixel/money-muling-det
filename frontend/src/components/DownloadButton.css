@@ -1,0 +1,111 @@
+/* Modern Download Button Styles - Dark Theme */
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Shine Effect */
+.download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.download-button:hover::before {
+  left: 100%;
+}
+
+/* Hover Effects */
+.download-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl), 0 0 50px rgba(99, 102, 241, 0.5);
+}
+
+.download-button:active {
+  transform: translateY(-1px);
+}
+
+/* Icon */
+.download-button-icon {
+  font-size: 1.25rem;
+}
+
+/* Text */
+.download-button-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Secondary Style */
+.download-button-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-light);
+  box-shadow: none;
+}
+
+.download-button-secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.download-button-secondary::before {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .download-button {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 0.875rem;
+  }
+  
+  .download-button-icon {
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), 0 0 50px rgba(99, 102, 241, 0.5);
+  }
+}
+
+.download-button:not(:disabled) {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.download-button:not(:disabled):hover {
+  animation: none;
+}
